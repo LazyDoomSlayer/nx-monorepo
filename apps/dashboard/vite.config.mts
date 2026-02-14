@@ -1,6 +1,7 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -10,12 +11,19 @@ export default defineConfig(() => ({
     port: 8091,
     strictPort: true,
   },
-  preview: {
-    host: 'localhost',
-    port: 8191,
-    strictPort: true,
-  },
-  plugins: [vue()],
+  // preview: {
+  //   host: 'localhost',
+  //   port: 8191,
+  //   strictPort: true,
+  // },
+  plugins: [
+    vue({
+      template: { transformAssetUrls },
+    }),
+    vuetify({
+      autoImport: true,
+    }),
+  ],
   build: {
     outDir: './dist',
     emptyOutDir: true,

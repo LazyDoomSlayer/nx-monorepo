@@ -4,6 +4,8 @@ import { RouterLink, RouterView } from 'vue-router';
 
 <template>
   <header>
+    <v-btn :loading="true">Here is the vuetify button</v-btn>
+
     <nav>
       <RouterLink to="/">Home</RouterLink>
       <RouterLink to="/about">About</RouterLink>
