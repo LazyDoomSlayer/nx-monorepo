@@ -10,11 +10,11 @@ export default defineConfig(() => ({
     port: 8092,
     strictPort: true,
   },
-  preview: {
-    host: 'localhost',
-    port: 8192,
-    strictPort: true,
-  },
+  // preview: {
+  //   host: 'localhost',
+  //   port: 8192,
+  //   strictPort: true,
+  // },
   plugins: [vue()],
   // Uncomment this if you are using workers.
   // worker: {
