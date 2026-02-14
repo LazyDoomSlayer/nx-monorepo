@@ -32,6 +32,9 @@ export default defineConfig(() => ({
       transformMixedEsModules: true,
     },
   },
+  optimizeDeps: {
+    include: ['@org/jssip-snapshot']
+  },
   test: {
     name: '@org/dashboard',
     watch: false,

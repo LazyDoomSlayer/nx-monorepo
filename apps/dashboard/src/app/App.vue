@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
+
+import * as JsSIP from '@org/jssip-snapshot';
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  console.log('JsSIP', JsSIP);
+});
 </script>
 
 <template>
