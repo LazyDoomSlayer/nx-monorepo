@@ -14,6 +14,18 @@
     },
     {
       "path": "./libs/ui"
+    },
+    {
+      "path": "./libs/shared/types"
+    },
+    {
+      "path": "./libs/shared/constants"
+    },
+    {
+      "path": "./libs/shared/config"
+    },
+    {
+      "path": "./libs/shared/utils"
     }
   ]
 }
