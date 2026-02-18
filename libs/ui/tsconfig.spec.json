@@ -1,22 +1,21 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "types": ["vite/client"],
-    "rootDir": "src",
+    "outDir": "./out-tsc/vitest",
+    "types": [
+      "vitest/globals",
+      "vitest/importMeta",
+      "vite/client",
+      "node",
+      "vitest"
+    ],
     "jsx": "preserve",
     "jsxImportSource": "vue",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo"
+    "resolveJsonModule": true
   },
-  "exclude": [
-    "out-tsc",
-    "dist",
-    "src/**/__tests__/*",
-    "src/**/*.spec.vue",
-    "src/**/*.test.vue",
+  "include": [
     "vite.config.ts",
     "vite.config.mts",
     "vitest.config.ts",
@@ -29,15 +28,11 @@
     "src/**/*.spec.js",
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx",
-    "eslint.config.js",
-    "eslint.config.cjs",
-    "eslint.config.mjs"
+    "src/**/*.d.ts"
   ],
-  "include": [
-    "src/**/*.js",
-    "src/**/*.jsx",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    }
   ]
 }

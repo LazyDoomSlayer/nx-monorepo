@@ -1,12 +1,21 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import * as path from 'path';
+
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
   cacheDir: '../../node_modules/.vite/libs/ui',
   plugins: [
+    vue({
+      template: { transformAssetUrls },
+    }),
+    vuetify({
+      autoImport: true,
+    }),
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(import.meta.dirname, 'tsconfig.lib.json'),
@@ -37,6 +46,18 @@ export default defineConfig(() => ({
     rollupOptions: {
       // External packages that should not be bundled into your library.
       external: [],
+    },
+  },
+  test: {
+    name: '@org/ui',
+    watch: false,
+    globals: true,
+    environment: 'jsdom',
+    include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    reporters: ['default'],
+    coverage: {
+      reportsDirectory: './test-output/vitest/coverage',
+      provider: 'v8' as const,
     },
   },
 }));
