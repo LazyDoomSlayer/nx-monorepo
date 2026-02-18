@@ -1,19 +1,41 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router';
+
+import { getAppConfig } from '@org/shared/config';
+import { onMounted } from 'vue';
+import { capitalize, deepClone, isEmptyObject, sleep, truncate } from '@org/shared/utils';
+
+const config = getAppConfig();
+
+onMounted(async () => {
+  console.log(capitalize('lazydoomslayer'));
+  console.log(truncate('Very long string example', 10));
+
+  await sleep(500);
+
+  console.log(isEmptyObject({}));
+  console.log(deepClone({ a: 1 }));
+
+  console.log(config.env);
+  console.log(config.apiBaseUrl);
+});
 </script>
 
 <template>
   <header>
-
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/">
+        Home
+      </RouterLink>
+      <RouterLink to="/about">
+        About
+      </RouterLink>
     </nav>
   </header>
   <RouterView />
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 header {
   line-height: 1.5;
   max-width: 100vw;
