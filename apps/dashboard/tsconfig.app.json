@@ -3,8 +3,8 @@
   "compilerOptions": {
     "outDir": "dist",
     "types": ["vite/client"],
-    "rootDir": "src",
     "jsx": "preserve",
+    "rootDir": "../..",
     "jsxImportSource": "vue",
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -35,10 +35,10 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.vue"],
   "references": [
     {
-      "path": "../../packages/jssip-snapshot"
+      "path": "../../libs/ui/tsconfig.lib.json"
     },
     {
-      "path": "../../libs/ui/tsconfig.lib.json"
+      "path": "../../packages/jssip-snapshot"
     }
   ]
 }

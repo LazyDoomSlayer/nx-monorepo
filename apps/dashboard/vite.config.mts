@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -23,6 +24,7 @@ export default defineConfig(() => ({
     vuetify({
       autoImport: true,
     }),
+    nxViteTsPaths(),
   ],
   build: {
     outDir: './dist',
@@ -33,7 +35,7 @@ export default defineConfig(() => ({
     },
   },
   optimizeDeps: {
-    include: ['@org/jssip-snapshot']
+    include: ['@org/jssip-snapshot'],
   },
   test: {
     name: '@org/dashboard',

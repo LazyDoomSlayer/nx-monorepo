@@ -1,5 +1,6 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router';
+import { BaseDialog, BaseInput } from '@org/ui';
 
 import * as JsSIP from '@org/jssip-snapshot';
 import { onMounted } from 'vue';
@@ -11,17 +12,22 @@ onMounted(() => {
 
 <template>
   <header>
-    <v-btn :loading="true">Here is the vuetify button</v-btn>
+    <BaseDialog />
+    <BaseInput />
 
     <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+      <RouterLink to="/">
+        Home
+      </RouterLink>
+      <RouterLink to="/about">
+        About
+      </RouterLink>
     </nav>
   </header>
   <RouterView />
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 header {
   line-height: 1.5;
   max-width: 100vw;
