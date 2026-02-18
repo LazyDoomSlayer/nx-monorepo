@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -23,6 +24,7 @@ export default defineConfig(() => ({
     vuetify({
       autoImport: true,
     }),
+    nxViteTsPaths(),
   ],
   // Uncomment this if you are using workers.
   // worker: {
